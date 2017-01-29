@@ -9,6 +9,7 @@ def main(args):
                     help="the number of words to generate")
     args = ap.parse_args()
     wordlist = WordList.load_default("en/full")
+    wordlist.shuffle()
 
     num_throws = args.num_words * NUM_DICE
     throws = []
@@ -30,7 +31,6 @@ def main(args):
 
     password = "".join(words)
     print password
-
 
 if __name__ == "__main__":
     import sys
