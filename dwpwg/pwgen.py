@@ -3,7 +3,7 @@
 from wordlist import WordList, NUM_DICE, DIE_FACES
 import argparse
 
-def main(args):
+def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("num_words", metavar="number-of-words", type=int,
                     help="the number of words to generate")
@@ -34,4 +34,4 @@ def main(args):
 
 if __name__ == "__main__":
     import sys
-    sys.exit(main(sys.argv));
+    sys.exit(main());
