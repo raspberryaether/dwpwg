@@ -6,11 +6,11 @@ setup(
     author = "Raspberry Aether",
     author_email = "raspberryaether@riseup.net",
     description = "(d)ice(w)are (p)ass(w)ord (g)enerator",
-    keywords = ("diceware password passwords passphrase passphrases ",
-                "security bitcoins monero crypto cryptocurrency ",
-                "key keys keyphrase keyphrases encryption nsa ",
-                "surveillance privacy private secret secrecy",
-                "generate generator dice d20 brainwallet wallet"),
+    keywords = ("diceware password passwords passphrase passphrases " +
+                "security bitcoins monero crypto cryptocurrency " +
+                "key keys keyphrase keyphrases encryption nsa " +
+                "surveillance privacy private secret secrecy " +
+                "generate generator dice d20 brainwallet wallet").split(),
     url = "https://github.com/raspberryaether/dwpwg",
     packages = find_packages(),
     include_package_data=True,

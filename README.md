@@ -4,6 +4,22 @@ Introduction
 
 ...is a Diceware-inspired passphrase/keyphrase construction utility.
 
+TL;DR
+=====
+If you don't quite understand this section, skip to the next section,
+and *read the whole page*. More detailed instructions follow.
+
+You will need at least one d20. Run:
+
+    sudo pip install dwpwg
+    dwpwg --help
+
+Do not use fewer than 4 words for anything.
+Do not use fewer than 8 words for an encryption key.
+Do not use fewer than 12 words for anything involving cryptocurrency.
+***NEVER LOSE A CRYPTOGRAPHIC KEYPHRASE,*** or everything will be gone forever.
+You have been warned.
+
 Why?
 ====
 
@@ -23,29 +39,8 @@ powerful supercomputing cluster to guess.
 More required reading:
     <http://world.std.com/~reinhold/diceware.html>
 
-TL;DR How-To
-============
-
-If you don't quite understand this section, skip to the next section. More
-detailed instructions follow.
-
-Grab a d20 or three and, from the repository's root directory:
-
-    $ python -m dwpwg #
-
-replacing # with the number of words you would like in your password. 
-
-Follow onscreen instructions. Your password will be displayed in plaintext
-on the last line. Physically secure your device as necessary. When in doubt,
-close your blinds, lock your door, wear a tinfoil hat, and do it all over again.
-
-Do not use fewer than 4 words for anything.
-Do not use fewer than 8 words for an encryption key.
-Do not use fewer than 12 words for anything involving cryptocurrency.
-***NEVER LOSE A CRYPTOGRAPHIC KEYPHRASE,*** or everything will be gone forever.
-
-About dwpwg
-===========
+About
+=====
 
 Despite its name, this program is not intended to generate random passwords.
 It is designed, instead, to generate random word lists, and create passwords
@@ -80,6 +75,34 @@ already-constructed wordlist because an attacker necessarily must compromise
 both your dice and your list in order to have an easier time guessing your 
 passphrase. Using a publicly-available list hands them half of the puzzle for
 free.
+
+Installing
+==========
+
+Prerequisites:
+- Python 2.7.x
+- pip
+- an Internet connection
+
+dwpwg is available from PyPI using ```pip install dwpwg```. Depending on your
+environment, you will probably need to be root (on GNU/Linux) or running as
+Administrator (on Windows). Run:
+
+    pip install dwpwg
+
+If you prefer to run the development version of dwpwg, or to run it in-place
+rather than installing, that is possible too:
+
+    git clone https://github.com/raspberryaether/dwpwg.git
+    cd dwpwg
+    python -m dwpwg --help
+
+It is also possible to manually create and install the dwpwg package locally.
+Perform the steps above to get the development version, then, as root or
+Administrator:
+
+    python setup.py install
+
 
 Detailed usage instructions
 ===========================
