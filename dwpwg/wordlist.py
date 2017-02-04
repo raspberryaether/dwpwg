@@ -6,10 +6,13 @@ from pkg_resources import resource_filename
 DIE_FACES = 20
 NUM_DICE = 3
 
+
 class WordList(object):
     def __init__(self, words):
         """Create a word list object from the given iterable of words."""
         self.words = words
+        self.facets = DIE_FACES
+        self.throws = NUM_DICE
 
     @classmethod
     def load_default(cls, filepath):
@@ -71,6 +74,7 @@ class WordList(object):
 
         return self.words[index]
 
+
 def main(args):
     test = WordList.load(args[1])
     print len(test.words), "words loaded"
@@ -90,4 +94,4 @@ def main(args):
 
 if __name__ == "__main__":
     import sys
-    sys.exit(main(sys.argv));
+    sys.exit(main(sys.argv))

@@ -1,37 +1,30 @@
 """Password generator utility. Uses 3 d20 dice for entropy."""
 
-from wordlist import WordList, NUM_DICE, DIE_FACES
-import argparse
+from argparse import ArgumentParser
+from .wordlist import WordList
+from .format import parse_format
+
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("num_words", metavar="number-of-words", type=int,
-                    help="the number of words to generate")
+    ap = ArgumentParser()
+    ap.add_argument("pattern", type=str,
+                    help="the pattern of the generated phrase")
+
     args = ap.parse_args()
+
     wordlist = WordList.load_default("en/full")
     wordlist.shuffle()
 
-    num_throws = args.num_words * NUM_DICE
-    throws = []
-    while num_throws > len(throws):
-        try:
-            print "Input throws (%d): " % (num_throws - len(throws)),
-            throw = int(raw_input())
-            if 1 <= throw <= DIE_FACES:
-                throws.append(throw)
-            else:
-                raise ValueError
-        except:
-            print "Try again (%d):   " % (num_throws - len(throws)),
+    elements = parse_format(args.pattern)
+    
+    for element in elements:
+        element.activate(wordlist)
+        while element.requires_entropy():
+            element.process_entropy(int(raw_input("Input roll: ")))
 
-    words = []
-    while args.num_words > len(words):
-        word = wordlist.get([throws.pop(0) for x in xrange(3)])
-        words.append(word)
+    print "".join(str(element) for element in elements)
 
-    password = "".join(words)
-    print password
 
 if __name__ == "__main__":
     import sys
-    sys.exit(main());
+    sys.exit(main())

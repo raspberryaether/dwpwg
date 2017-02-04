@@ -1,7 +1,8 @@
 """Package executable file for dwpwg."""
 
-from .pwgen import main
+import sys
+from . import pwgen
+
 
 if __name__ == "__main__":
-    import sys
-    sys.exit(main(sys.argv));
+    sys.exit(pwgen.main())
