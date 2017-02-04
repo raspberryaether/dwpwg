@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "dwpwg",
-    version = "0.0.1",
+    use_scm_version = True,
     author = "Raspberry Aether",
     author_email = "raspberryaether@riseup.net",
     description = "(d)ice(w)are (p)ass(w)ord (g)enerator",
@@ -29,5 +29,11 @@ setup(
         "Topic :: Security",
         "Topic :: Security :: Cryptography",
         "Topic :: Utilities"
+    ],
+    install_requires = [
+        "pyparsing"
+    ],
+    setup_requires = [
+        "setuptools_scm"
     ]
 )
